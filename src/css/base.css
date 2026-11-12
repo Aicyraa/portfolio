@@ -1,0 +1,66 @@
+/* ============================================================
+   1. TOKENS
+   ============================================================ */
+:root{
+  --bg:#121212; --surface:#1b1b1d; --surface-2:#242427;
+  --line:#34343a; --text:#e9e4d8; --muted:#9c978c; --muted-2:#b8b1a4;
+  --accent:#c4472b; --accent-soft:#8f3320; --gold:#b89a5a;
+  --paper:#f4efe4; --wood:#2c211b; --wood-2:#3a2a21; --wood-edge:#5b4434;
+  --rice:#e4d7bd;
+  --display:'Shippori Mincho','Noto Serif JP',Georgia,serif;
+  --body:'Zen Kaku Gothic New','Noto Sans',system-ui,-apple-system,sans-serif;
+  --wrap:1180px; --reading:760px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --shadow:0 30px 80px rgba(0,0,0,.55);
+}
+
+/* ============================================================
+   2. BASE
+   ============================================================ */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:6.5rem}
+body{
+  margin:0; color:var(--text);
+  background:
+    radial-gradient(ellipse 60% 40% at 82% 0%,rgba(196,71,43,.045),transparent 70%),
+    radial-gradient(ellipse 50% 45% at 5% 100%,rgba(184,154,90,.035),transparent 72%),
+    var(--bg);
+  font:400 clamp(1.02rem,.35vw + .94rem,1.14rem)/1.8 var(--body);
+  overflow-x:hidden; -webkit-font-smoothing:antialiased;
+}
+/* Paper grain, generated from an inline SVG turbulence filter. */
+body::after{
+  content:""; position:fixed; inset:0; z-index:999; pointer-events:none; opacity:.05;
+  mix-blend-mode:soft-light;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.9'/%3E%3C/svg%3E");
+}
+::selection{background:var(--accent); color:#fff}
+img{max-width:100%; display:block}
+a{color:var(--text); text-decoration-color:var(--accent); text-underline-offset:.22em}
+a:hover{color:var(--accent)}
+button,input,textarea{font:inherit}
+button{color:inherit}
+:focus-visible{outline:2px solid var(--gold); outline-offset:4px}
+h1,h2,h3{font-family:var(--display); font-weight:700; line-height:1.12; letter-spacing:-.02em; margin:0}
+p{margin:0}
+ul,ol{margin:0; padding:0}
+.wrap{width:min(100% - 2.5rem,var(--wrap)); margin-inline:auto}
+.reading{max-width:var(--reading)}
+main .wrap{position:relative; z-index:1}
+.sr{position:absolute!important; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0}
+.skip{position:fixed; left:1rem; top:-5rem; z-index:1000; background:var(--accent); color:#fff; padding:.65rem 1rem; text-decoration:none; transition:top .2s}
+.skip:focus{top:1rem}
+.ph{color:var(--gold); outline:1px dashed var(--gold); outline-offset:3px; font-size:.9em}
+.icon{width:1.35em; height:1.35em; fill:none; stroke:currentColor; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; flex:none}
+
+/* Fixed navigation leaves the hero clear underneath. */
+#main{display:block}
+section{position:relative; padding:clamp(4.5rem,9vw,8rem) 0; scroll-margin-top:6.5rem}
+
+/* Brush-stroke rule that opens each section. */
+.brush-sep{display:flex; width:100%; margin-bottom:clamp(2.6rem,5.5vw,4.5rem); color:var(--line)}
+.brush-sep svg{
+  width:100%; height:13px; fill:currentColor;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+}

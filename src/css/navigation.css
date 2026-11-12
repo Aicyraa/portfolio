@@ -1,0 +1,55 @@
+/* ============================================================
+   3. NAVIGATION + PROGRESS
+   ============================================================ */
+#progress{position:fixed; inset:0 0 auto 0; height:2px; z-index:110; background:var(--accent); transform:scaleX(0); transform-origin:left; will-change:transform}
+#nav{
+  position:fixed; inset:0 0 auto 0; z-index:90;
+  padding:clamp(.9rem,2.2vw,1.45rem) 1rem .6rem;
+  transition:padding .3s var(--ease);
+}
+#nav::before{
+  content:""; position:absolute; inset:0; z-index:-1; pointer-events:none;
+  background:linear-gradient(to bottom,rgba(18,18,18,.92),rgba(18,18,18,0));
+  transition:opacity .3s;
+}
+.nav-inner{
+  position:relative; width:fit-content; max-width:calc(100% - 2rem); margin-inline:auto;
+  display:flex; align-items:center; justify-content:center; padding:0 .4rem;
+  border:1px solid transparent; border-radius:2px;
+  transition:background .3s,border-color .3s,backdrop-filter .3s;
+}
+.nav-mark{display:none}
+#nav.scrolled{padding-top:.7rem}
+#nav.scrolled .nav-inner{
+  background:rgba(27,27,29,.9); border-color:var(--line);
+  -webkit-backdrop-filter:blur(14px); backdrop-filter:blur(14px);
+}
+.links{display:flex; align-items:center; justify-content:center; gap:clamp(.5rem,2vw,1.6rem); list-style:none}
+.links a{
+  position:relative; display:block; padding:.5rem .55rem;
+  color:var(--muted-2); text-decoration:none; font-size:.98rem; white-space:nowrap;
+  transition:color .2s;
+}
+.links a::after{
+  content:""; position:absolute; left:.55rem; right:.55rem; bottom:.18rem; height:1px;
+  background:var(--accent); transform:scaleX(0); transform-origin:left; transition:transform .3s var(--ease);
+}
+.links a:hover,.links a.on{color:var(--text)}
+.links a:hover::after,.links a.on::after{transform:scaleX(1)}
+/* A small katana acts as the navigation focus indicator. */
+.links a:focus-visible{outline:0; color:var(--text); background:rgba(184,154,90,.055)}
+.links a:focus-visible::before{
+  content:""; position:absolute; z-index:3; left:50%; bottom:-.35rem;
+  width:112px; height:20px; translate:-50% 0;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 20'%3E%3Cpath d='M2 10h28' stroke='%236b513d' stroke-width='7' stroke-linecap='square'/%3E%3Cpath d='M6 5l8 10M12 5l8 10M18 5l8 10' stroke='%23c4472b' stroke-width='1.8'/%3E%3Cpath d='M32 2v16' stroke='%23b89a5a' stroke-width='3'/%3E%3Cpath d='M35 8h84l17 2-17 2H35z' fill='%23f4efe4'/%3E%3Cpath d='M35 10h84' stroke='%23b89a5a' stroke-width='.7'/%3E%3C/svg%3E") center/100% 100% no-repeat;
+  filter:drop-shadow(0 0 6px rgba(233,228,216,.65)) drop-shadow(0 3px 5px rgba(0,0,0,.85));
+  transform-origin:center; animation:focusBlade .42s var(--ease) both;
+}
+.burger{
+  display:none; width:46px; height:42px; place-items:center; cursor:pointer;
+  background:var(--surface); border:1px solid var(--line); border-radius:2px;
+}
+.burger .icon{width:22px; height:22px; color:var(--text)}
+.burger .close{display:none}
+.burger[aria-expanded="true"] .menu{display:none}
+.burger[aria-expanded="true"] .close{display:block}
