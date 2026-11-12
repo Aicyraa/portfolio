@@ -83,6 +83,7 @@ export function initMusicPlayer() {
     if (isOpen()) return;
     panel.hidden = false;
     toggle.setAttribute('aria-expanded', 'true');
+    toggle.setAttribute('aria-label', 'Close music player');
     close.focus();
     mountPlayer();
     if (controller) controller.play();
@@ -94,6 +95,7 @@ export function initMusicPlayer() {
     setPlaying(false);
     panel.hidden = true;
     toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Open music player');
     if (returnFocus) toggle.focus();
   }
 
