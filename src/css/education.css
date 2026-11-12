@@ -55,7 +55,6 @@
   gap:1.25rem; padding:1.1rem 0;
   border-bottom:1px solid rgba(184,154,90,.13);
 }
-.edu-timeline li:last-child{border-bottom:0}
 .edu-timeline li::before{
   content:""; position:absolute; left:calc(7.6rem + .85rem - 3.5px); top:1.6rem;
   width:7px; height:7px; border-radius:50%;

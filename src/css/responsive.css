@@ -80,7 +80,7 @@
   .project h3{font-size:1.65rem}
   .shot{padding:.6rem .6rem .5rem}
   .device--phone{width:min(100%,224px)}
-  .nobori-wall-wrap{padding:1rem .55rem 1.2rem}
+  .nobori-wall-wrap{padding-inline:.9rem}
   .nobori-wall{grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem .45rem}
   .nobori{height:calc(var(--h) - 58px)}
   .nobori-name{font-size:.86rem}
