@@ -24,12 +24,16 @@
 .music-pill:focus-visible .icon{color:var(--gold)}
 .music-pill[aria-expanded="true"]{border-color:var(--accent); color:var(--text)}
 
-/* Small equalizer that animates only while playback is active.
-   Bars stay short when idle so the control still reads as a music pill. */
+/* Equalizer hidden by default; it slides out from the note icon only
+   while playback is active. */
 .music-eq{
   display:inline-flex; align-items:flex-end; gap:2px; height:14px; flex:none;
+  width:0; opacity:0; overflow:hidden; transform:translateX(-5px);
   color:var(--accent);
+  transition:width .32s var(--ease),opacity .2s var(--ease),
+    transform .32s var(--ease),margin .32s var(--ease);
 }
+.music.is-playing .music-eq{width:14px; opacity:1; transform:none}
 .music-eq i{
   display:block; width:2px; height:100%; border-radius:1px;
   background:currentColor; transform:scaleY(var(--s,.4)); transform-origin:bottom;
@@ -40,8 +44,10 @@
 .music-eq i:nth-child(3){--s:.45; --dur:.8s; --delay:-.35s}
 .music-eq i:nth-child(4){--s:.9; --dur:1.1s; --delay:-.7s}
 .music.is-playing .music-eq i{animation:musicEq var(--dur,.9s) ease-in-out infinite alternate; animation-delay:var(--delay,0s)}
-.music-pill .music-eq{height:12px; margin-left:-.15rem}
-.music-title .music-eq{height:13px; margin-left:-.1rem}
+.music-pill{gap:0}
+.music-pill .music-eq{height:12px}
+.music.is-playing .music-pill .music-eq{margin-left:.45rem}
+.music.is-playing .music-title .music-eq{margin-right:.45rem}
 
 @keyframes musicEq{
   from{transform:scaleY(.22)}
@@ -65,8 +71,9 @@
   margin-bottom:.65rem; padding-bottom:.6rem;
   border-bottom:1px solid rgba(184,154,90,.2);
 }
-.music-title{display:flex; align-items:center; gap:.5rem; color:var(--gold); font-family:var(--display); font-size:.98rem; letter-spacing:.03em}
-.music-title .icon{width:1.1rem; height:1.1rem; color:var(--accent)}
+.music-title{display:flex; align-items:center; gap:0; color:var(--gold); font-family:var(--display); font-size:.98rem; letter-spacing:.03em}
+.music-title .icon{width:1.1rem; height:1.1rem; margin-right:.5rem; color:var(--accent)}
+.music-title .music-eq{height:13px}
 .music-close{
   display:grid; place-items:center; width:1.8rem; height:1.8rem; flex:none;
   border:1px solid transparent; border-radius:1px;
