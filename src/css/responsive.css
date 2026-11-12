@@ -1,5 +1,5 @@
 /* ============================================================
-   12. RESPONSIVE
+   13. RESPONSIVE
    ============================================================ */
 @media (max-width:1060px){
   .nobori-wall{grid-template-columns:repeat(5,minmax(0,1fr)); gap:1.5rem .6rem}

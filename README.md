@@ -16,6 +16,7 @@ src/css/            Styles split by page section, loaded in dependency order
   projects.css        project cards, device frames and lightbox
   goals.css           career goal path
   contact.css         contact board and footer
+  music.css           floating Spotify playlist
   motion.css          reveal and motion rules
   responsive.css      breakpoints and reduced-motion fallbacks
 src/js/             ES modules, one feature per file
@@ -26,6 +27,7 @@ src/js/             ES modules, one feature per file
   portrait.js         tilt, katana slash, quote cycle and the one-time tip
   projects.js         device-frame screenshots and the FLIP lightbox
   contact.js          client-side form validation
+  music.js            lazy floating Spotify playlist
   utils.js            shared selectors and media queries
 assets/
   pfp.jpeg            portrait illustration

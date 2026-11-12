@@ -22,6 +22,7 @@
 <link rel="stylesheet" href="src/css/projects.css">
 <link rel="stylesheet" href="src/css/goals.css">
 <link rel="stylesheet" href="src/css/contact.css">
+<link rel="stylesheet" href="src/css/music.css">
 <link rel="stylesheet" href="src/css/motion.css">
 <link rel="stylesheet" href="src/css/responsive.css">
 </head>
@@ -64,6 +65,7 @@
     <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
     <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h16M14 6l6 6-6 6"/></symbol>
     <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4"/></symbol>
+    <symbol id="i-music" viewBox="0 0 24 24"><path d="M9 18V5l10-2v13"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/></symbol>
   </defs>
 </svg>
 
@@ -717,6 +719,34 @@
 <a class="to-top" id="to-top" href="#header" aria-label="Back to top">
   <svg class="icon" aria-hidden="true"><use href="#i-katana"/></svg>
 </a>
+
+<!-- Floating playlist. The Spotify iframe is created only after the first open. -->
+<div class="music" id="music">
+  <div class="music-panel" id="music-panel" role="dialog" aria-label="Playlist player" hidden>
+    <div class="music-head">
+      <p class="music-title">
+        <svg class="icon" aria-hidden="true"><use href="#i-music"/></svg>
+        <span class="music-eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span>What I code to</span>
+      </p>
+      <button class="music-close" id="music-close" type="button" aria-label="Close playlist">
+        <svg class="icon" aria-hidden="true"><use href="#i-close"/></svg>
+      </button>
+    </div>
+    <div class="music-frame" id="music-frame" data-url="https://open.spotify.com/playlist/2maaS5XtIA3dlHmB4gys4D?theme=0" data-src="https://open.spotify.com/embed/playlist/2maaS5XtIA3dlHmB4gys4D?utm_source=generator&amp;theme=0"></div>
+    <p class="music-note">
+      <a href="https://open.spotify.com/playlist/2maaS5XtIA3dlHmB4gys4D" target="_blank" rel="noopener noreferrer">
+        Open in Spotify
+        <svg class="icon" aria-hidden="true"><use href="#i-external"/></svg>
+      </a>
+    </p>
+  </div>
+  <button class="music-pill" id="music-toggle" type="button" aria-expanded="false" aria-controls="music-panel">
+    <svg class="icon" aria-hidden="true"><use href="#i-music"/></svg>
+    <span class="music-eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <span>Music</span>
+  </button>
+</div>
 
 <!-- Shared lightbox for expanded project screenshots. -->
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Expanded project screenshot" hidden>
