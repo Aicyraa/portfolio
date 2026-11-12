@@ -1,0 +1,116 @@
+/* ============================================================
+   12. RESPONSIVE
+   ============================================================ */
+@media (max-width:1060px){
+  .nobori-wall{grid-template-columns:repeat(5,minmax(0,1fr)); gap:1.5rem .6rem}
+}
+@media (max-width:1000px){
+  .about-grid,.edu-grid,.goals-grid,.contact-grid{grid-template-columns:1fr}
+  .about-aside,.goals-head{position:static}
+  .goals-head{display:grid; grid-template-columns:1fr 1fr; gap:1rem; align-items:end}
+  .goals-head .section-head{margin-bottom:1.5rem}
+  .goal-note{margin-top:0}
+  .edu-record{max-width:none}
+  .form-panel{justify-self:start; max-width:460px}
+}
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr; gap:3.2rem}
+  .hero-copy{max-width:44rem}
+  .portrait{width:min(82vw,400px); margin-top:.5rem}
+  .section-head.split{grid-template-columns:1fr; gap:1rem}
+  .project,.project:nth-child(even){grid-template-columns:1fr; gap:1.3rem}
+  .project:nth-child(even) .project-shot{order:0}
+  .project:hover,.project:focus-within{transform:translateY(-3px)}
+  #header{min-height:auto; padding-bottom:4.5rem}
+}
+@media (max-width:720px){
+  #nav{padding:.75rem .8rem .4rem}
+  #nav.scrolled{padding-top:.55rem}
+  .nav-inner{width:calc(100% - 1.6rem); justify-content:flex-end; padding:.25rem; border-color:var(--line); background:rgba(18,18,18,.82); -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px)}
+  .nav-mark{
+    display:grid; place-items:center; position:absolute; left:8px; top:50%;
+    width:34px; height:34px; color:var(--accent); opacity:.8;
+    transform:translateY(-50%); pointer-events:none;
+  }
+  .nav-mark .icon{width:21px; height:21px}
+  .burger{display:grid}
+  .links{
+    position:absolute; top:calc(100% + .55rem); right:0; width:min(88vw,300px);
+    display:grid; gap:0; padding:.45rem; background:var(--surface); border:1px solid var(--line);
+    opacity:0; visibility:hidden; transform:translateY(-8px); pointer-events:none;
+    transition:opacity .22s,transform .22s,visibility .22s;
+  }
+  .links.open{opacity:1; visibility:visible; transform:none; pointer-events:auto}
+  .links a{padding:.8rem .8rem; font-size:1rem; border-bottom:1px solid var(--line)}
+  .links li:last-child a{border-bottom:0}
+  .links a::after{display:none}
+  .links a:focus-visible::before{width:150px; bottom:.12rem}
+  .about-copy .lead{font-size:1.25rem}
+  h2{font-size:clamp(1.95rem,8vw,2.8rem)}
+  .goals-head{grid-template-columns:1fr}
+  .goal-note{max-width:none}
+  .nobori-wall{grid-template-columns:repeat(auto-fit,minmax(94px,1fr)); gap:1.2rem .55rem}
+  .nobori{height:calc(var(--h) - 18px)}
+}
+@media (max-width:620px){
+  /* Education stacks into a readable vertical record. */
+  .edu-record{padding:.62rem}
+  .record-head{padding:.55rem .55rem .65rem}
+  .edu-timeline{padding:.35rem .55rem .1rem}
+  .edu-timeline::before{display:none}
+  .edu-timeline li{grid-template-columns:1fr; gap:.2rem; padding:.9rem 0}
+  .edu-timeline li::before{display:none}
+  .edu-years{font-size:.8rem}
+  .edu-cert{margin:.4rem .05rem .15rem; padding:.85rem}
+  .edu-cert-icon{width:2.2rem; height:2.2rem}
+  .table-note{margin:.8rem .45rem .25rem}
+}
+@media (max-width:520px){
+  .wrap{width:min(100% - 1.8rem,var(--wrap))}
+  section{padding:4rem 0}
+  .brush-sep{margin-bottom:2.3rem}
+  .hero{padding-top:.8rem}
+  .tagline{font-size:1.1rem}
+  .hero-quote{align-items:flex-start; gap:.8rem; margin-top:1.8rem}
+  .ronin-mark{width:76px; height:76px}
+  .btn{width:100%; justify-content:center}
+  .hero-actions .btn.ghost{margin-left:0}
+  .portrait{width:min(88vw,340px)}
+  .project{padding:.8rem}
+  .project h3{font-size:1.65rem}
+  .shot{padding:.6rem .6rem .5rem}
+  .device--phone{width:min(100%,224px)}
+  .nobori-wall-wrap{padding:1rem .55rem 1.2rem}
+  .nobori-wall{grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem .45rem}
+  .nobori{height:calc(var(--h) - 58px)}
+  .nobori-name{font-size:.86rem}
+  .nobori-cat{font-size:.54rem}
+  .nobori-tip{width:min(180px,54vw); font-size:.7rem}
+  .nobori-wall .nobori:nth-child(3n+1) .nobori-tip{left:0; transform:translate(0,8px)}
+  .nobori-wall .nobori:nth-child(3n) .nobori-tip{left:auto; right:0; transform:translate(0,8px)}
+  .nobori-wall .nobori:nth-child(3n+1):hover .nobori-tip,
+  .nobori-wall .nobori:nth-child(3n+1):focus-within .nobori-tip,
+  .nobori-wall .nobori:nth-child(3n):hover .nobori-tip,
+  .nobori-wall .nobori:nth-child(3n):focus-within .nobori-tip{transform:translate(0,0)}
+  .lightbox-close{width:2.35rem; height:2.35rem}
+  .lightbox-caption{font-size:.72rem; letter-spacing:.06em}
+  .goals li{padding-left:3.9rem}
+  .goals::before,.goals-fill{left:23px}
+  .goals li::before{width:48px; height:48px; font-size:.9rem}
+  .goals li::after{left:48px; top:20px}
+  .goals h3{font-size:1.3rem}
+  .form-panel{width:100%; padding:.95rem .85rem 1rem}
+  .form-panel::before{left:-3px; right:-3px}
+  .footer-grid{display:grid}
+  .to-top{right:.8rem; bottom:.8rem}
+}
+
+/* Respect reduced motion everywhere. */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important; transition:none!important}
+  .js [data-reveal]{opacity:1; transform:none; filter:none}
+  .enso path{stroke-dashoffset:0}
+  .nobori:hover .nobori-cloth,.nobori:focus-within .nobori-cloth{transform:rotate(var(--rest,0deg))}
+  .goals-fill{transform:scaleY(1)}
+}

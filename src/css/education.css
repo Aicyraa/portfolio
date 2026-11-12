@@ -1,0 +1,105 @@
+/* ============================================================
+   7. EDUCATION: THE DOJO RECORD
+   ============================================================ */
+#education::before{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:radial-gradient(ellipse 40% 60% at 18% 55%,rgba(196,71,43,.05),transparent 72%);
+}
+.edu-grid{
+  display:grid; grid-template-columns:minmax(220px,.62fr) minmax(0,1.42fr);
+  gap:clamp(2.2rem,6vw,5rem); align-items:center;
+}
+.edu-side{padding-top:.3rem}
+.edu-location{
+  display:flex; align-items:center; gap:.7rem; margin-top:1.1rem;
+  color:var(--muted); font-size:.9rem; letter-spacing:.03em;
+}
+.edu-location::before{
+  content:""; width:26px; height:1px; flex:none; background:var(--accent);
+}
+.edu-record{
+  position:relative; width:100%; max-width:780px; padding:clamp(.7rem,1.5vw,1.1rem);
+  border:1px solid var(--wood-edge);
+  background:
+    repeating-linear-gradient(91deg,transparent 0 10px,rgba(0,0,0,.09) 11px 12px),
+    linear-gradient(160deg,#3a2a21,#251b16 65%,#31231b);
+  box-shadow:0 24px 55px rgba(0,0,0,.32),inset 0 1px 0 rgba(233,228,216,.06);
+}
+.edu-record::before,.edu-record::after{
+  content:""; position:absolute; left:-7px; right:-7px; height:11px;
+  border:1px solid var(--wood-edge);
+  background:linear-gradient(180deg,#5b4434,#2b201a);
+  box-shadow:0 3px 8px rgba(0,0,0,.32);
+}
+.edu-record::before{top:-8px}
+.edu-record::after{bottom:-8px}
+.record-head{
+  display:flex; align-items:center; justify-content:space-between; gap:1rem;
+  padding:.7rem .85rem .8rem; border-bottom:1px solid rgba(184,154,90,.22);
+}
+.record-head p{color:var(--gold); font-family:var(--display); font-size:1.02rem; letter-spacing:.05em}
+.record-head p small{display:block; margin-top:.15rem; color:var(--muted); font:400 .66rem var(--body); letter-spacing:.16em; text-transform:uppercase}
+.record-seal{display:grid; place-items:center; width:2rem; height:2rem; color:var(--gold); opacity:.55}
+.record-seal .icon{width:100%; height:100%; stroke-width:1}
+
+/* The record reads as a hanging scroll: years on the left, the school on the right. */
+.edu-timeline{
+  position:relative; list-style:none; margin:0; padding:.4rem .85rem .2rem;
+}
+.edu-timeline::before{
+  content:""; position:absolute; left:calc(.85rem + 7.6rem); top:1.4rem; bottom:1.6rem;
+  width:1px; background:linear-gradient(180deg,rgba(184,154,90,.34),rgba(184,154,90,.08));
+}
+.edu-timeline li{
+  position:relative; display:grid; grid-template-columns:7.6rem minmax(0,1fr);
+  gap:1.25rem; padding:1.1rem 0;
+  border-bottom:1px solid rgba(184,154,90,.13);
+}
+.edu-timeline li:last-child{border-bottom:0}
+.edu-timeline li::before{
+  content:""; position:absolute; left:calc(7.6rem + .85rem - 3.5px); top:1.6rem;
+  width:7px; height:7px; border-radius:50%;
+  background:var(--accent); box-shadow:0 0 0 3px rgba(196,71,43,.16);
+}
+.edu-years{
+  color:var(--gold); font-family:var(--display); font-size:.86rem; letter-spacing:.04em;
+  line-height:1.6; white-space:nowrap;
+}
+.edu-body h3{
+  color:var(--rice); font-family:var(--display); font-weight:600;
+  font-size:clamp(1.12rem,1.5vw,1.34rem); line-height:1.35; letter-spacing:0;
+}
+.edu-level{
+  display:flex; align-items:center; flex-wrap:wrap; gap:.55rem;
+  margin-top:.3rem; color:var(--muted); font-size:.9rem; letter-spacing:.03em;
+}
+.edu-note{
+  display:inline-flex; align-items:center; padding:.14rem .5rem .1rem;
+  border:1px solid rgba(184,154,90,.4); color:var(--gold);
+  font-family:var(--body); font-size:.68rem; line-height:1.3;
+  letter-spacing:.12em; text-transform:uppercase;
+}
+.edu-note--now{border-color:rgba(196,71,43,.55); color:#e08a70}
+
+.edu-cert{
+  display:flex; align-items:center; gap:1rem;
+  margin:.5rem .15rem .3rem; padding:1rem 1.1rem;
+  border:1px solid rgba(184,154,90,.26);
+  background:
+    linear-gradient(120deg,rgba(196,71,43,.1),transparent 55%),
+    linear-gradient(180deg,#1b1714,#171310);
+  box-shadow:inset 0 1px 0 rgba(233,228,216,.05);
+}
+.edu-cert-icon{
+  display:grid; place-items:center; flex:none; width:2.6rem; height:2.6rem;
+  border:1px solid rgba(184,154,90,.4); color:var(--gold); transform:rotate(-3deg);
+}
+.edu-cert-icon .icon{width:1.4rem; height:1.4rem; stroke-width:1.2}
+.edu-cert-label{
+  color:var(--muted); font-size:.66rem; letter-spacing:.18em; text-transform:uppercase;
+}
+.edu-cert h3{
+  margin-top:.18rem; color:var(--rice); font-family:var(--display); font-weight:600;
+  font-size:clamp(1.02rem,1.3vw,1.16rem); letter-spacing:0;
+}
+.edu-cert-sub{margin-top:.1rem; color:var(--gold); font-size:.88rem; letter-spacing:.03em}
