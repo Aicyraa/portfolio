@@ -20,9 +20,13 @@ export function initMusicPlayer() {
   let controller = null;
   let apiLoading = false;
   let fallbackUsed = false;
+  let playing = false;
 
   const isOpen = () => toggle.getAttribute('aria-expanded') === 'true';
-  const setPlaying = playing => root.classList.toggle('is-playing', playing);
+  const setPlaying = next => {
+    playing = next;
+    root.classList.toggle('is-playing', next);
+  };
 
   function createIframe() {
     const iframe = document.createElement('iframe');
@@ -51,7 +55,7 @@ export function initMusicPlayer() {
 
       IFrameAPI.createController(
         mount,
-        { url: playlistUrl, width: '100%', height: 352 },
+        { url: playlistUrl, width: '100%', height: 400 },
         embed => {
           controller = embed;
           apiLoading = false;
@@ -59,7 +63,7 @@ export function initMusicPlayer() {
           if (iframe) iframe.title = 'Spotify playlist';
           // Only start audio while the panel is actually open.
           embed.addListener('ready', () => {
-            if (isOpen()) embed.play();
+            if (isOpen() && !playing) embed.play();
           });
           // The equalizer follows the real player state, including the
           // controls inside the Spotify embed.
@@ -86,13 +90,11 @@ export function initMusicPlayer() {
     toggle.setAttribute('aria-label', 'Close music player');
     close.focus();
     mountPlayer();
-    if (controller) controller.play();
+    if (controller && !playing) controller.play();
   }
 
   function closePanel(returnFocus = true) {
     if (!isOpen()) return;
-    if (controller) controller.pause();
-    setPlaying(false);
     panel.hidden = true;
     toggle.setAttribute('aria-expanded', 'false');
     toggle.setAttribute('aria-label', 'Open music player');

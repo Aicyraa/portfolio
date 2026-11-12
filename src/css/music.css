@@ -83,7 +83,7 @@
 .music-close .icon{width:1rem; height:1rem}
 .music-close:hover,.music-close:focus-visible{color:var(--text); border-color:var(--wood-edge); background:rgba(18,18,18,.5)}
 
-.music-frame iframe{display:block; width:100% !important; height:clamp(240px,50vh,400px) !important; border:0; border-radius:12px}
+.music-frame iframe{display:block; width:100% !important; height:400px !important; border:0; border-radius:12px}
 .music-note{margin-top:.55rem; text-align:right; font-size:.76rem; letter-spacing:.04em}
 .music-note a{display:inline-flex; align-items:center; gap:.35rem; color:var(--muted); text-decoration:none; transition:color .2s}
 .music-note a:hover,.music-note a:focus-visible{color:var(--gold)}
@@ -97,7 +97,6 @@
 @media (max-width:620px){
   .music{left:1rem; bottom:1rem}
   .music-panel{width:calc(100vw - 2rem); bottom:calc(100% + 1.5rem)}
-  .music-frame iframe{height:clamp(220px,48vh,340px) !important}
 }
 
 @media (prefers-reduced-motion:reduce){
