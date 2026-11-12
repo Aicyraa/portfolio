@@ -1,0 +1,42 @@
+/* ============================================================
+   9. CAREER GOALS: THE PILGRIMAGE
+   ============================================================ */
+#goals::before{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:radial-gradient(ellipse 42% 54% at 24% 34%,rgba(184,154,90,.055),transparent 72%);
+}
+.goals-grid{
+  display:grid; grid-template-columns:minmax(230px,.62fr) minmax(0,1.35fr);
+  gap:clamp(2.2rem,6vw,5.5rem); align-items:start;
+}
+.goals-head{position:sticky; top:7.5rem}
+.goal-note{margin-top:1.3rem; color:var(--muted); font-size:.94rem; line-height:1.7; max-width:28ch}
+.goals{position:relative; list-style:none; counter-reset:goal; padding:0}
+.goals::before,.goals-fill{content:""; position:absolute; left:28px; top:18px; bottom:18px; width:2px}
+.goals::before{background:linear-gradient(to bottom,transparent,var(--wood-edge) 8%,var(--wood-edge) 92%,transparent)}
+.goals-fill{background:linear-gradient(to bottom,var(--accent),var(--gold)); transform:scaleY(0); transform-origin:top; will-change:transform}
+.goals li{position:relative; padding:0 0 clamp(2.1rem,4.2vw,3.2rem) clamp(4.5rem,6vw,5.4rem)}
+.goals li:last-child{padding-bottom:0}
+.goals li::before{
+  counter-increment:goal; content:counter(goal,decimal-leading-zero);
+  position:absolute; left:0; top:-3px; z-index:2; width:58px; height:58px;
+  display:grid; place-items:center;
+  border:1px solid var(--wood-edge); border-radius:46% 54% 49% 51% / 53% 47% 54% 46%;
+  background:
+    radial-gradient(circle at 34% 28%,rgba(233,228,216,.08),transparent 48%),
+    linear-gradient(145deg,#33271f,#211913);
+  box-shadow:0 8px 18px rgba(0,0,0,.3),inset 0 0 0 4px rgba(18,18,18,.18);
+  color:var(--gold); font-family:var(--display); font-size:1.06rem;
+  transition:background .4s,color .4s,border-color .4s;
+}
+.goals li::after{
+  content:""; position:absolute; left:58px; top:24px; width:clamp(1.2rem,2vw,1.8rem); height:1px;
+  background:linear-gradient(90deg,var(--wood-edge),transparent);
+}
+.goals li.in::before{background:var(--accent); border-color:var(--accent); color:#fff}
+.goal-stage{
+  margin-bottom:.35rem; color:var(--gold); font-size:.68rem;
+  letter-spacing:.16em; text-transform:uppercase;
+}
+.goals h3{font-size:clamp(1.36rem,2.2vw,1.8rem); margin-bottom:.5rem; max-width:30ch}
+.goals p{max-width:58ch; color:var(--muted-2); font-size:1.04rem; line-height:1.8}
